@@ -5,12 +5,14 @@ Features
 
 * Template loaders
 * makemessages_jinja command
-* Test runner
+* test runner
 
 Installation
 ============
 
-Requires chouwa and Django 1.3::
+``Djinja2`` requires ``Django 1.3`` and ``chouwa``.
+
+::
 
     pip install chouwa
 
@@ -25,7 +27,10 @@ Configuration
 Modify your ``settings.py``.
 Add ``djinja2`` app to your ``INSTALLED_APPS``.
 
-Configure template loaders. ``Djinja2`` loader must be before ``django`` original loaders.::
+Configure template loaders.
+``Djinja2`` loader must come before ``django`` original loaders.
+
+::
 
     TEMPLATE_LOADERS = (
         'djinja2.loaders.filesystem.Loader',
@@ -34,14 +39,21 @@ Configure template loaders. ``Djinja2`` loader must be before ``django`` origina
         'django.template.loaders.app_directories.Loader',
     )
 
-Exclude non-jinja (admin site ...) templates with ``KEEP_DJANGO_TEMPLATES`` option in your settings. Eg.::
+Exclude non-jinja (admin site ...) templates with ``KEEP_DJANGO_TEMPLATES`` option in your settings.
+``Djinja2`` loaders skip any template which path begins with specified prefixes.
+For example to skip admin site templates use::
 
     KEEP_DJANGO_TEMPLATES = (
         'admin/',
     )
 
+Optionally run tests with ``Jinja2TestSuiteRunner`` to have correctly instrumented template render.
+
 Usage
 =====
 
-You can use all ``chouwa`` features (chouwa decorators, jinja_globals.py in each app ...)
+You can use all `Jinja2 <http://jinja.pocoo.org/>`_ and
+`chouwa <http://bitbucket.org/trevor/chouwa/>`_ features (chouwa decorators, jinja_globals.py in each app ...)
+
+To create or update a localization message file use ``makemessages_jinja`` command instead.
 
