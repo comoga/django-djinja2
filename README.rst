@@ -1,16 +1,18 @@
-Jinja2 integration with Django
+Django Jinja2 template engine integration.
 
 Features
 ========
 
 * Template loaders
 * makemessages_jinja command
+* Test runner
 
 Installation
 ============
 
 Install from here using ``pip``::
 
+    pip install -e git+git://github.com/comoga/django-jinja2#egg=django-jinja2
 
 
 Configuration
