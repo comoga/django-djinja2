@@ -1,0 +1,2 @@
+recursive-include djinja2/templates/ *.html
+
