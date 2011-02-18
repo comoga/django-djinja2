@@ -55,5 +55,5 @@ Usage
 You can use all `Jinja2 <http://jinja.pocoo.org/>`_ and
 `chouwa <http://bitbucket.org/trevor/chouwa/>`_ features (chouwa decorators, jinja_globals.py in each app ...)
 
-To create or update a localization message file use ``makemessages_jinja`` command instead.
+To create or update a localization message file use ``makemessagesjinja`` command instead.
 
