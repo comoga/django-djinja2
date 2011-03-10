@@ -3,14 +3,18 @@ from jinja2.utils import Markup, escape
 
 from django.core.urlresolvers import reverse
 from django.conf import settings
-from django.template.defaulttags import CsrfTokenNode
 
 from chouwa.decorators import jinjaglobal, jinjafilter
 
 @jinjaglobal
 @jinja2.contextfunction
 def csrf_token_tag(context):
-    return Markup(CsrfTokenNode().render(context))
+    csrf_token = context.get('csrf_token', None)
+    code = ''
+    if csrf_token:
+        if csrf_token != 'NOTPROVIDED':
+            code = '<input type="hidden" name="csrfmiddlewaretoken" value="%s" />' % csrf_token
+    return Markup(code)
 
 
 @jinjaglobal
